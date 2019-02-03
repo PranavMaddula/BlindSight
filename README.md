@@ -18,7 +18,17 @@ A webcam or PiCamera is connected to the Raspberry Pi. The function of the code 
 When the user asks Alexa to describe the scene, the Alexa Skills Kit triggers Amazon Lambda function to fetch the data from the database (DynamoDB). The correct text is the played as an audio on the Alexa device.
 
 
-#Process to be followed for Dragonboard/Raspbery pi after getting linux OS up and running
+# Breakdown of each Program
+1. Alexa.Json : This file stores the schema for the Alexa Skill used in the project. It contains the trigger words and phrases, along with the acceptable descriptors for the scene
+2. Camera.py : This program takes one photo every second to allow for *semi* realtime processing
+3. DynamoPush.py : This program takes the output from the Microsoft Vision API and processes and uploads it to AWS DynamoDB for processing and serving by Lambda and Alexa
+4. Lambda.py : This program is the main glue-logic for the project. It coordinates the data in DynamoDB and Alexa and provides the computation for Alexa. It is run on AWS Lambda
+5. Vision.py : This program queries the Microsoft Vision API by uploading the image to be analyzed and returns with the description and tags of the image.
+
+
+
+
+# Process to be followed for Dragonboard/Raspbery pi after getting linux OS up and running
 
 # Update the system
 
@@ -50,17 +60,15 @@ Setup the AWS Endpoint Resource
 
 
 Testing and Notes:
-Speak to Amazon Echo - "Alexa start BlindSight" (you should hear the response as: "Sure, You can ask me to describe the scene")
-Get the userId. Speak to Amazon Echo - "Alexa ask smart cap to get the user info" (you should hear a long code)
-Speak to Amazon Echo - "Alexa ask smart cap" "describe the scene"" (you should hear the response as: "No data received from device in past one minute"). This makes sure that the Alexa skills kit and dynamoDb are working as expected.
-Copy the userId and paste it in DynamoPush.py file
+"Alexa start BlindSight" (you should hear the response as: "Sure, You can ask me to describe the scene")
+"Alexa get my user ID" -> Copy the userId and paste it in DynamoPush.py file
 
 
 
 Make sure you have python 2.7.9
 
-1. Run camera_image.py: <pre>python camera_image.py</pre> (You should see the images in the same folder)
-2. Run ms_visionapi.py: <pre>python ms_visionapi.py</pre> (You should see the results in the terminal)
-3. Run aws_dynamodb.py: <pre>python aws_dynamosb.py</pre> (Note: this might require sudo access depending on if you used sudo while doing aws configure. It will tell you if update item succedded for dynamodb)
+1. Run Camera.py: <pre>python Camera.py</pre> (You should see the images in the same folder)
+2. Run Vision.py: <pre>python Vision.py</pre> (You should see the results in the terminal)
+3. Run DynamoPut.py: <pre>python DynamoPut.py</pre> (Note: this might require sudo access depending on if you used sudo while doing aws configure. It will tell you if update item succedded for DynamoDB)
 12. Speak to Alexa - "Alexa start BlindSight" "describe the scene". If everything went well, you should now hear some relevant to the image that was capture by the camera 
 Example: 'I think it is a yellow truck going on the road and the keywords are road, car, trees, sky'
