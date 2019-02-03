@@ -1,0 +1,214 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "blind sight",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancel"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "shutdown",
+                        "cancel",
+                        "enough",
+                        "exit",
+                        "stop",
+                        "quit"
+                    ]
+                },
+                {
+                    "name": "SceneDescription",
+                    "slots": [
+                        {
+                            "name": "Direction",
+                            "type": "LIST_OF_DIRECTIONS"
+                        },
+                        {
+                            "name": "Proximity",
+                            "type": "LIST_OF_PROXIMITIES"
+                        },
+                        {
+                            "name": "Environment",
+                            "type": "LIST_OF_ENVIRONMENTS"
+                        }
+                    ],
+                    "samples": [
+                        "Tell What is in {Proximity}",
+                        "Tell What is in the {Environment}",
+                        "Tell What is {Proximity} from me",
+                        "Tell What is {Proximity} to me",
+                        "Tell What is in the {Direction} direction",
+                        "Tell What is in {Direction} of me",
+                        "Tell What is there in {Direction} of me",
+                        "Explain What is in {Proximity}",
+                        "Explain What is in the {Environment}",
+                        "Explain What is {Proximity} from me",
+                        "Explain What is {Proximity} to me",
+                        " Explain What is in the {Direction} direction",
+                        "Explain What is in {Direction} of me",
+                        "Explain What is there in {Direction} of me",
+                        "Explain the {Environment}",
+                        "Describe What is {Proximity}",
+                        "Describe What is in the {Environment}",
+                        "Describe What is {Proximity} from me",
+                        "Describe What is {Proximity} to me",
+                        "Describe What is in the {Direction} direction",
+                        "Describe What is in {Direction} of me",
+                        "Describe What is there in {Direction} of me",
+                        "Describe the {Environment}",
+                        "What is in {Proximity}",
+                        "What is in the {Environment}",
+                        "What is {Proximity} from me",
+                        "What is {Proximity} to me",
+                        "What is in the {Direction} direction",
+                        "What is in {Direction} of me",
+                        "What is there in {Direction} of me"
+                    ]
+                },
+                {
+                    "name": "GetUserId",
+                    "slots": [
+                        {
+                            "name": "userid",
+                            "type": "LIST_OF_IDS"
+                        }
+                    ],
+                    "samples": [
+                        "Find my {userid} info",
+                        "Find my {userid} id",
+                        "What is my {userid} id",
+                        "What is my {userid} info",
+                        "Get my {userid} info",
+                        "Get the {userid} info",
+                        "Get the {userid} id",
+                        "Get my {userid} id"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_DIRECTIONS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Right"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Left"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Back"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Front"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_ENVIRONMENTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Text"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Photograph"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Photo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Picture"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Scene"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Environment"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_IDS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "user"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_PROXIMITIES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Near"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Far"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_REQUESTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Explain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tell"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Describe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "What"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
