@@ -13,7 +13,7 @@ def exit_gracefully(signum,frame):
 headers = {
     # Request headers
     'Content-Type': 'application/octet-stream',
-    'Ocp-Apim-Subscription-Key': '6b49a29c63d141218ddc39360da3b1c6',
+    'Ocp-Apim-Subscription-Key': 'Subscription_Key',
 }
 
 params = urllib.urlencode({
